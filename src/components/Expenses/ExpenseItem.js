@@ -1,14 +1,17 @@
 import "./ExpenseItem.css";
+import React from "react";
+
 import ExpenseDate from "./ExpenseDate";
 import ExpenseDetails from "./ExpenseDetails";
 
-function ExpenseItem(props) {
+const ExpenseItem=(props)=> {
   const expenseDate = props.date;
   const expenseTitle = props.title;
   const expenseAmount = props.amount;
   const expenseLocation = props.location;
 
   return (
+  
     <div className="expense-item">
       <ExpenseDate expenseDate={expenseDate} />
       <ExpenseDetails
@@ -17,6 +20,7 @@ function ExpenseItem(props) {
         expenseLocation={expenseLocation}
       />
     </div>
+   
   );
 }
 
