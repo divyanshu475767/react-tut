@@ -1,0 +1,15 @@
+
+.time{
+    display: flex;
+    padding: 10px;
+}
+
+.month{
+    padding: 3px;
+}
+.day{
+    padding:3px;
+}
+.year{
+    padding: 3px;
+}

@@ -1,23 +1,21 @@
 import "./ExpenseItem.css";
-
-
+import ExpenseDate from "./ExpenseDate";
+import ExpenseDetails from "./ExpenseDetails";
 
 function ExpenseItem(props) {
-    const expenseDate= props.date;
-    const expenseTitle = props.title;
-    const expenseAmount = props.amount;
-    const expenseLocation = props.location;
+  const expenseDate = props.date;
+  const expenseTitle = props.title;
+  const expenseAmount = props.amount;
+  const expenseLocation = props.location;
 
   return (
-
     <div className="expense-item">
-      <div>{expenseDate.toISOString()}</div>
-      <div className="expense-item__description">
-        <h2>{expenseTitle}</h2>
-      <h2>{expenseLocation}</h2>
-
-        <div className="expense-item__price">${expenseAmount}</div>
-      </div>
+      <ExpenseDate expenseDate={expenseDate} />
+      <ExpenseDetails
+        expenseTitle={expenseTitle}
+        expenseAmount={expenseAmount}
+        expenseLocation={expenseLocation}
+      />
     </div>
   );
 }
