@@ -24,6 +24,7 @@ const ExpenseItem = (props) => {
     setPrice('100');
   };
 
+  
   const deleteHandler = (e) => {
     e.target.parentNode.remove();
   };
