@@ -1,9 +1,11 @@
 import Expenses from "./components/Expenses/Expenses.js";
-import React from "react";
+import React,{useState} from "react";
 import NewExpense from "./components/NewExpenses/NewExpense.js";
 
 
+
 const App=()=> {
+
   let expenses = [
     {
       id: "e1",
@@ -34,14 +36,28 @@ const App=()=> {
       amount: 25000,
       date: new Date(2025, 9, 2),
       location:'malaysia',
-
     },
   ];
 
+  const [expenseArray , setExpenseArray] = useState(expenses);
+
+
+
+
+
+  const addExpenseHandler = expense =>{
+    console.log('in app js');
+    console.log(expense);
+    setExpenseArray([
+      ...expenseArray,
+      expense
+    ])
+  }
+
   return (
     <div >
-      <NewExpense/>
-    <Expenses expenses={expenses} />
+    <NewExpense onAddExpense= {addExpenseHandler}/>
+    <Expenses expenses={expenseArray} />
     </div>
   );
 }
