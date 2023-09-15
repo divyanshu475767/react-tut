@@ -1,41 +1,48 @@
-import "./ExpenseItem.css";
-import React from "react";
+import React, { useState } from "react";
 
 import ExpenseDate from "./ExpenseDate";
 import ExpenseDetails from "./ExpenseDetails";
+import "./ExpenseItem.css";
 
-
-
-const ExpenseItem=(props)=> {
+const ExpenseItem = (props) => {
   const expenseDate = props.date;
-  const expenseTitle = props.title;
+
   const expenseAmount = props.amount;
   const expenseLocation = props.location;
- 
-  const clickHandler = ()=>{
 
-    console.log('clickeed');
-  }
-  
-  const deleteHandler =(e)=>{
+  const [title, setTitle] = useState(props.title);
+  const [price, setPrice] = useState(expenseAmount);
+
+
+  const clickHandler = () => {
+    console.log("clickeed");
+    setTitle("lemon");
+  };
+
+  const changePriceHandler = () => {
+    console.log("clickeed");
+    setPrice('100');
+  };
+
+  const deleteHandler = (e) => {
     e.target.parentNode.remove();
-  }
-  
+  };
+
+  console.log('reparse kr rha hu bro');
+
   return (
-  
     <div className="expense-item">
       <ExpenseDate expenseDate={expenseDate} />
       <ExpenseDetails
-        expenseTitle={expenseTitle}
-        expenseAmount={expenseAmount}
+        expenseTitle={title}
+        expenseAmount={price}
         expenseLocation={expenseLocation}
       />
       <button onClick={clickHandler}>Change title</button>
       <button onClick={deleteHandler}>Delete</button>
-
+      <button onClick={changePriceHandler}>Change Price</button>
     </div>
-   
   );
-}
+};
 
 export default ExpenseItem;
