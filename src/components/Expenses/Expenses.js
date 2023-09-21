@@ -27,7 +27,11 @@ const Expenses = (props) => {
         onChangeFilter={filterChangeHandler}
       />
 
-      {expenses.map((expense, index) => (
+    {expenses.length ===0 && <p>No expenses found</p> }
+
+
+
+      {expenses.length >0 && expenses.map((expense, index) => (
         <ExpenseItem
           key={expense.id}
           title={expense.title}
@@ -35,7 +39,11 @@ const Expenses = (props) => {
           date={expense.date}
           location={expense.location}
         />
-      ))}
+      ))
+       }
+
+       {expenses.length ===1 && <p>Only single Expense here. Please add more...</p>}
+      
     </div>
   );
 };
