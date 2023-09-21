@@ -29,7 +29,6 @@ const ExpenseItem = (props) => {
     e.target.parentNode.remove();
   };
 
-  console.log('reparse kr rha hu bro');
 
   return (
     <div className="expense-item">
